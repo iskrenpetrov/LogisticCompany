@@ -66,9 +66,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserServiceModel> findAllUsers() {
         List<User> list = new ArrayList<>();
-        for(User user:userRepository.findAll()){
-            for(Role role: user.getAuthorities()){
-                if(role.getAuthority().equals(ROLE_USER)){
+        for (User user : userRepository.findAll()) {
+            for (Role role : user.getAuthorities()) {
+                if (role.getAuthority()
+                        .equals(ROLE_USER)) {
                     list.add(user);
                     break;
                 }
@@ -82,9 +83,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserServiceModel> findAllEmployees() {
         List<User> list = new ArrayList<>();
-        for(User user:userRepository.findAll()){
-            for(Role role: user.getAuthorities()){
-                if(role.getAuthority().equals(ROLE_EMPLOYEE) || role.getAuthority().equals(ROLE_COURIER)){
+        for (User user : userRepository.findAll()) {
+            for (Role role : user.getAuthorities()) {
+                if (role.getAuthority()
+                        .equals(ROLE_EMPLOYEE)
+                        || role.getAuthority()
+                                .equals(ROLE_COURIER)) {
                     list.add(user);
                     break;
                 }
