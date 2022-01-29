@@ -28,7 +28,7 @@
                 <div class="box-headline">
                     <h2>Приходи</h2>
                 </div>
-                <form th:action="@{/income}" th:method="post">
+                <form th:action="@{/income/in-range}" th:method="get">
                     <div>
                         <label for="fromDate">От дата:</label>
                         <input class = "roundButton viewButton roundFormWithBlackText borderButton" type="date" id = "fromDate" name="fromDate">
@@ -41,9 +41,12 @@
                         <button class = "roundButton viewButton roundFormWithBlackText borderButton" type="submit">Покажи</button>
                     </div>
                 </form>
-
-                <p id="incomeP" th:text="${income}"></p>
-            </div>
+                <hr/>
+				<div style="margin-top: 2%;">
+					<span>Приходи за периода: </span>
+					<p th:text="${incomeViewModel}"></p>
+				</div>
+			</div>
         </div>
         <th:block th:include="~{fragments/footer}"></th:block>
     </div>
